@@ -9,5 +9,4 @@ export class TestMVC extends MVC {
 		const m = new TestModel     ();
 		const v = new TestGUI       (id);
 		const c = new TestController();
-		super(m, v, c);
-		v.draw() } }
+		super(m, v, c) } }

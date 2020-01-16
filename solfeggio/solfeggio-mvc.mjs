@@ -9,5 +9,4 @@ export class SolfeggioMVC extends MVC {
 		const m = new SolfeggioModel     ();
 		const v = new SolfeggioGUI       (id);
 		const c = new SolfeggioController();
-		super(m, v, c);
-		v.draw() } }
+		super(m, v, c) } }
