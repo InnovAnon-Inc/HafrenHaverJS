@@ -7,7 +7,8 @@ export class CanvasGUI extends GUI {
 	//ctx;
 	constructor(id) {
 		super(id);
-		const canvas  = super.element;
+		//const canvas  = super.element;
+		const canvas  = this.element;
 		this.width    = canvas.width;
 		this.height   = canvas.height;
 		this.ctx      = canvas.getContext("2d");
