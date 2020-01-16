@@ -31,7 +31,7 @@
 	</nav>
 
 	<article>
-	<div> <!-- main section -->
+	<div id='main-section'> <!-- main section -->
 	<noscript>JavaScript enables a more featureful experience.</noscript>
 	<div class="square"><div class="content">
 	<canvas id="solfeggio"></canvas>
@@ -81,6 +81,7 @@
 		mvc = Object.freeze(new TestMVC('solfeggio'));
 		alert('mvc created');
 	</script>
+	<script type="text/javascript" src="nomodule.js" nomodule defer></script>
 	<!--<script type="module">
 		import('mymvc.mjs').then(module => {
 			module.createMVC('solfeggio');
