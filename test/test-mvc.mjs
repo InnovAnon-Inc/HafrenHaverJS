@@ -1,8 +1,8 @@
 "use strict";
-import { TestModel      } from '/HafrenHaverJS/test/test-model';
-import { TestView       } from '/HafrenHaverJS/test/test-view';
-import { TestController } from '/HafrenHaverJS/test/test-controller';
-import { MVC            } from '/HafrenHaverJS/mvc/mvc';
+import { TestModel      } from '/HafrenHaverJS/test/test-model.mjs';
+import { TestView       } from '/HafrenHaverJS/test/test-view.mjs';
+import { TestController } from '/HafrenHaverJS/test/test-controller.mjs';
+import { MVC            } from '/HafrenHaverJS/mvc/mvc.mjs';
 
 export function createMVC(id) {
 	m   = new TestModel     (0, 0);

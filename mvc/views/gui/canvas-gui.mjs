@@ -1,5 +1,5 @@
 "use strict";
-import { GUI } from '/HafrenHaverJS/mvc/views/gui/gui';
+import { GUI } from '/HafrenHaverJS/mvc/views/gui/gui.mjs';
 
 export class CanvasGUI extends GUI {
 	width;

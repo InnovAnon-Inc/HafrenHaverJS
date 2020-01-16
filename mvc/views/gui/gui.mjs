@@ -1,5 +1,5 @@
 "use strict";
-import { View } from '/HafrenHaverJS/mvc/views/view';
+import { View } from '/HafrenHaverJS/mvc/views/view.mjs';
 
 export class GUI extends View {
 	id;

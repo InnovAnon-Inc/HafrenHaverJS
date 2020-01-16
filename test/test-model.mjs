@@ -1,5 +1,5 @@
 "use strict";
-import { Model } from '/HafrenHaverJS/mvc/model';
+import { Model } from '/HafrenHaverJS/mvc/model.mjs';
 
 export class TestModel extends Model {
 	x;
