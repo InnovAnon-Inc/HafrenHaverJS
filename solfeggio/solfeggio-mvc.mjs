@@ -7,6 +7,7 @@ import { MVC                 } from '/HafrenHaverJS/mvc/mvc.mjs';
 export class SolfeggioMVC extends MVC {
 	constructor(id) {
 		const m = new SolfeggioModel     ();
+		// TODO make 'v' a parameter, so client can use CLI
 		const v = new SolfeggioGUI       (id);
 		const c = new SolfeggioController();
 		super(m, v, c) } }
