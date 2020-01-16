@@ -6,7 +6,7 @@ import { MVC            } from '/HafrenHaverJS/mvc/mvc.mjs';
 
 export class TestMVC extends MVC {
 	constructor(id) {
-		const m = new TestModel     (0, 0);
+		const m = new TestModel     ();
 		const v = new TestGUI       (id);
 		const c = new TestController();
 		super(m, v, c);

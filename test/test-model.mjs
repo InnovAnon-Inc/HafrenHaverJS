@@ -4,7 +4,7 @@ import { Model } from '/HafrenHaverJS/mvc/model.mjs';
 export class TestModel extends Model {
 	//#x;
 	//#y;
-	constructor(x, y) {
+	constructor(x = 0, y = 0) {
 		super();
 		this.x = x;
 		this.y = y }
