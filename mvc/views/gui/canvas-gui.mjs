@@ -27,8 +27,8 @@ export class CanvasGUI extends GUI {
 			offsetY = target.offsetTop  + event.offsetY;
 			console.log('offset   x,     y      => ' + offsetX            + ', ' + offsetY) }
 		
-		const x = offsetX / canvas.scrollWidth;
-		const y = offsetY / canvas.scrollHeight;
+		const x = offsetX / canvas.scrollWidth  * canvas.width;
+		const y = offsetY / canvas.scrollHeight * canvas.height;
 		
 		console.log('scroll   width, height => ' + canvas.scrollWidth + ', ' + canvas.scrollHeight);
 		console.log('logical  width, height => ' + canvas.width       + ', ' + canvas.height);
