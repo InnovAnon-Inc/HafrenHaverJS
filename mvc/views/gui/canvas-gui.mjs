@@ -17,16 +17,21 @@ export class CanvasGUI extends GUI {
 		const canvas     = this.element;
 		const elemLeft   = canvas.offsetLeft;
 		const elemTop    = canvas.offsetTop;
+		console.log('elem left, top => ' + elemLeft + ', ' + elemTop);
 		
 		var   offsetX    = event.offsetX;
 		var   offsetY    = event.offsetY;
+		console.log('offset x, y => ' + offsetX + ', ' + offsetY);
 		const target     = event.target;
 		if (target != canvas) { // 'this' is our HTMLElement
 			offsetX = target.offsetLeft + event.offsetX;
-			offsetY = target.offsetTop  + event.offsetY }
+			offsetY = target.offsetTop  + event.offsetY;
+			console.log('offset x, y => ' + offsetX + ', ' + offsetY) }
 		
 		const x = offsetX;
 		const y = offsetY;
+		console.log('x, y => ' + x + ', ' + y);
+		console.log('w, h => ' + canvas.width + ', ' + canvas.height);
 		
 		this.handleClick(x, y) }
 	redraw() {
