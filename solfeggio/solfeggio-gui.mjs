@@ -2,7 +2,26 @@
 import { CanvasGUI    } from '/HafrenHaverJS/mvc/views/gui/elemental-canvas-gui.mjs';
 import { SOLFEGGIO_DB } from '/HafrenHaverJS/solfeggio/solfeggio-model.mjs';
 
-// TODO everything
+class SolfeggioElementModel extends Model {
+	constructor(w2, h2, r2, theta, roff) {
+		this.x    = w2 + r2 * Math.cos(theta);
+		this.y    = h2 + r2 * Math.sin(theta);
+		this.roff = roff }
+	contains(x, y) { return (Math.sqrt(Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2)) <= this.roff) } }
+class SolfeggioElementGUI extends GUI {
+	constructor(canvas) { this.canvas = canvas }
+	draw() {}
+}
+class SolfeggioElementController extends Controller {
+	handleClick() {
+		// TODO
+	} }
+class SolfeggioElementMVC extends MVC {
+	constructor(w2, h2, r2, theta, roff, entry) {
+		const m = new SolfeggioElementModel(w2, h2, r2, theta, roff);
+		const v = new SolfeggioElementGUI();
+		const c = new SolfeggioController();
+		super(m, v, c) } }
 
 export class SolfeggioGUI extends ElementalCanvasGUI {
 	constructor(id) { super(id) }
@@ -29,9 +48,7 @@ export class SolfeggioGUI extends ElementalCanvasGUI {
 		}
 		
 		this.elements = Object.freeze(elements) }
-	handleClickedElements(elements) {
-		
-	}
+	handleClickedElements(elements) { elements.forEach(e => e.controller.handleClick()) }
 	drawBefore() {
 		// TODO draw inner circle
 		// TODO draw outer circle
@@ -96,30 +113,6 @@ export class SolfeggioGUI extends ElementalCanvasGUI {
 			this.drawElementText(x, y, entry[2],  entry[0]);
 		}
 	}
-	drawPolygons() {
-		const ctx = this.#ctx;
-		const len = this.#polygons.length;
-		for(var i = 0; i < len; i++) {
-			const polygon = this.#polygons[i];
-			const entry   = SOLFEGGIO_DB[i % len];
-			ctx.beginPath();
-			/*
-			ctx.moveTo(polygon[0][0], polygon[0][1]);
-			ctx.lineTo(polygon[1][0], polygon[1][1]);
-			ctx.lineTo(polygon[2][0], polygon[2][1]);
-			ctx.lineTo(polygon[0][0], polygon[0][0]);
-			*/
-			ctx.moveTo(polygon[0], polygon[1]);
-			ctx.lineTo(polygon[2], polygon[3]);
-			ctx.lineTo(polygon[4], polygon[5]);
-			ctx.lineTo(polygon[0], polygon[1]);
-			ctx.closePath();
-			ctx.strokeStyle = entry[1];
-			ctx.lineWidth   = 1;
-			ctx.lineJoin    = 'round';
-			ctx.stroke();
-		}
-	}
 	drawArrow (w2, h2, r3, len) {
 		const ctx     = this.#ctx;
 		const index2  = this.mvc.model.index;
@@ -161,47 +154,4 @@ export class SolfeggioGUI extends ElementalCanvasGUI {
 		this.drawArrow(w2, h2, r3, len);
 
 		ctx.restore();
-	}
-	// TODO on mouse click, check which frequency is selected, then update base frequency selecting widget and play sound
-	onClick(event) {
-		const canvas     = super.element;
-		const elemLeft   = canvas.offsetLeft;
-		const elemTop    = canvas.offsetTop;
-		//const x          = event.pageX - elemLeft;
-		//const y          = event.pageY - elemTop;
-		//const x          = elemLeft;
-		//const y          = elemTop;
-
-		var offsetX = event.offsetX;
-		var offsetY = event.offsetY;
-
-		if (event.target != canvas) { // 'this' is our HTMLElement
-			offsetX = event.target.offsetLeft + event.offsetX;
-			offsetY = event.target.offsetTop  + event.offsetY;
-		}
-
-		const x = offsetX;
-		const y = offsetY;
-
-
-		//console.log(elemLeft + ' ' + elemTop);
-		const len        = this.#elements.length;
-		const controller = this.mvc.controller;
-		console.log(x + ' ' + y);
-		for(var i = 0; i < len; i++) {
-			const element = this.#elements[i];
-			const x0      = element[0];
-			const y0      = element[1];
-			const er      = element[2];
-			//console.log(i);
-			console.log(x0 + ' ' + y0);
-			console.log(Math.sqrt(Math.pow(x - x0, 2) + Math.pow(y - y0, 2)));
-			console.log(er);
-			if (Math.sqrt(Math.pow(x - x0, 2) + Math.pow(y - y0, 2)) > er) continue;
-			controller.selectIndex(i);
-			//console.log(i);
-			return;
-		}
-	}
-	
-}
+	} }

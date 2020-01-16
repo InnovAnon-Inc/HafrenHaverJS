@@ -15,7 +15,7 @@ export class ElementalCanvasGUI extends CanvasGUI {
 		this.drawElements();
 		this.drawAfter();
 		ctx.restore() }
-	drawElements() { this.elements.forEach(e => e.draw()) }
+	drawElements() { this.elements.forEach(e => e.view.draw()) }
 	// drawBefore() {}
 	// drawAfter () {}
 	// handleClickedElements(elements) {}
