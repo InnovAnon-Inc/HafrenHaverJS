@@ -1,6 +1,6 @@
 "use strict";
 import { TestModel      } from '/HafrenHaverJS/test/test-model.mjs';
-import { TestView       } from '/HafrenHaverJS/test/test-view.mjs';
+import { TestGUI        } from '/HafrenHaverJS/test/test-gui.mjs';
 import { TestController } from '/HafrenHaverJS/test/test-controller.mjs';
 import { MVC            } from '/HafrenHaverJS/mvc/mvc.mjs';
 
