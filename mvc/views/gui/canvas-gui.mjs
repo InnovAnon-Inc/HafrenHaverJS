@@ -12,7 +12,7 @@ export class CanvasGUI extends GUI {
 		this.height   = canvas.height;
 		this.ctx      = canvas.getContext("2d");
 		canvas.addEventListener('click', ((event) => this.onClick(event)).bind(this), false) }
-	function onClick(event) {
+	onClick(event) {
 		const canvas     = super.element;
 		const elemLeft   = canvas.offsetLeft;
 		const elemTop    = canvas.offsetTop;
@@ -28,11 +28,11 @@ export class CanvasGUI extends GUI {
 		const y = offsetY;
 		
 		this.handleClick(x, y) }
-	function redraw() {
+	redraw() {
 		ctx.save();
 		ctx.clearRect(0, 0, this.width, this.height);
 		this.draw();
 		ctx.restore() }
-	// function draw() {}
-	// function handleClick(x, y) {}
+	// draw() {}
+	// handleClick(x, y) {}
 }

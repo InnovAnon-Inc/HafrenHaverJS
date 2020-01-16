@@ -3,8 +3,8 @@ import { CanvasGUI } from '/HafrenHaverJS/mvc/views/gui/canvas-gui.mjs';
 
 export class TestGUI extends CanvasGUI {
 	constructor(id) { super(id) }
-	function handleClick(x, y) { super.mvc.controller.setXY(x, y) }	
-	function draw() {
+	handleClick(x, y) { super.mvc.controller.setXY(x, y) }	
+	draw() {
 		ctx.save();
 		
 		const x          = super.mvc.model.x;
