@@ -9,8 +9,8 @@ export class CanvasGUI extends GUI {
 		super(id);
 		//const canvas  = super.element;
 		const canvas  = this.element;
-		this.width    = canvas.width;
-		this.height   = canvas.height;
+		this.width    = canvas.clientWidth;
+		this.height   = canvas.clientHeight;
 		this.ctx      = canvas.getContext("2d");
 		canvas.addEventListener('click', ((event) => this.onClick(event)).bind(this), false) }
 	onClick(event) {
