@@ -8,5 +8,5 @@ export class GUI extends View {
 		super();
 		this.id      = id;
 		this.element = document.getElementById(id) }
-	get id     () { return this.id      }
-	get element() { return this.element } }
+	//get id     () { return this.id      }
+	//get element() { return this.element } }

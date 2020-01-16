@@ -12,6 +12,7 @@ export class MVC {
 		view      .mvc  = this;
 		controller.mvc  = this;
 		view.draw() }
-	get model     () { return this.model      }
-	get view      () { return this.view       }
-	get controller() { return this.controller } }
+	//get model     () { return this.model      }
+	//get view      () { return this.view       }
+	//get controller() { return this.controller }
+}

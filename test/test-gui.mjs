@@ -10,11 +10,11 @@ export class TestGUI extends CanvasGUI {
 		const x          = super.mvc.model.x;
 		const y          = super.mvc.model.y;
 		const text       = "(" + x + ", " + y + ")";
-		const ctx        = this.ctx;
+		const ctx        = super.ctx;
 		ctx.font         = '8pt Calibri';
 		ctx.textAlign    = 'center';
 		ctx.textBaseline = 'middle';
-		ctx.fillStyle    = fillStyle
+		ctx.fillStyle    = 'red'; // TODO ?
 		ctx.fillText(text, x, y);
 		
 		ctx.restore() }
