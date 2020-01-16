@@ -5,12 +5,13 @@ export class TestGUI extends CanvasGUI {
 	constructor(id) { super(id) }
 	handleClick(x, y) { super.mvc.controller.setXY(x, y) }	
 	draw() {	
-		const x          = super.mvc.model.x;
-		const y          = super.mvc.model.y;
+		const model      = this.mvc.model;
+		const x          = model.x;
+		const y          = model.y;
 		const text       = "(" + x + ", " + y + ")";
-		const ctx        = super.ctx;
+		const ctx        = this.ctx;
 		
-		this.ctx.save();
+		ctx.save();
 		
 		ctx.font         = '8pt Calibri';
 		ctx.textAlign    = 'center';

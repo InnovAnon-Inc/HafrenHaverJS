@@ -8,6 +8,7 @@ export class ElementalCanvasGUI extends CanvasGUI {
 		this.elements = [] }
 	handleClick(x, y) { this.handleClickedElements(elements.filter(e => e.contains(x, y))) }
 	draw() {
+		const ctx = this.ctx;
 		ctx.save();
 		this.drawBefore();
 		this.drawElements();

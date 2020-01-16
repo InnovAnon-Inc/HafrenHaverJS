@@ -14,15 +14,16 @@ export class CanvasGUI extends GUI {
 		this.ctx      = canvas.getContext("2d");
 		canvas.addEventListener('click', ((event) => this.onClick(event)).bind(this), false) }
 	onClick(event) {
-		const canvas     = super.element;
+		const canvas     = this.element;
 		const elemLeft   = canvas.offsetLeft;
 		const elemTop    = canvas.offsetTop;
 		
-		var offsetX = event.offsetX;
-		var offsetY = event.offsetY;
-		if (event.target != canvas) { // 'this' is our HTMLElement
-			offsetX = event.target.offsetLeft + event.offsetX;
-			offsetY = event.target.offsetTop  + event.offsetY;
+		var   offsetX    = event.offsetX;
+		var   offsetY    = event.offsetY;
+		const target     = event.target;
+		if (target != canvas) { // 'this' is our HTMLElement
+			offsetX = target.offsetLeft + event.offsetX;
+			offsetY = target.offsetTop  + event.offsetY;
 		}
 		
 		const x = offsetX;
@@ -30,6 +31,7 @@ export class CanvasGUI extends GUI {
 		
 		this.handleClick(x, y) }
 	redraw() {
+		const ctx = this.ctx;
 		ctx.save();
 		ctx.clearRect(0, 0, this.width, this.height);
 		this.draw();
