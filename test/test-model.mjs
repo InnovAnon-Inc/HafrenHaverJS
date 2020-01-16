@@ -5,6 +5,7 @@ export class TestModel extends Model {
 	//x;
 	//y;
 	constructor(x, y) {
+		super();
 		this.x = x;
 		this.y = y }
 	get x()  { return this.x }
