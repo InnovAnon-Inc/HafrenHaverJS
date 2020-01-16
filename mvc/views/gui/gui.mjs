@@ -5,6 +5,7 @@ export class GUI extends View {
 	//id;
 	//element;
 	constructor(id) {
+		super();
 		this.id      = id;
 		this.element = document.getElementById(id) }
 	get id     () { return this.id      }
