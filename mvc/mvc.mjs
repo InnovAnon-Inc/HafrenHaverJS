@@ -1,9 +1,9 @@
 "use strict";
 
 export class MVC {
-	model;
-	view;
-	controller;
+	//model;
+	//view;
+	//controller;
 	constructor(model, view, controller) {
 		this.model      = model;
 		this.view       = view;
