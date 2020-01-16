@@ -23,8 +23,7 @@ export class CanvasGUI extends GUI {
 		const target     = event.target;
 		if (target != canvas) { // 'this' is our HTMLElement
 			offsetX = target.offsetLeft + event.offsetX;
-			offsetY = target.offsetTop  + event.offsetY;
-		}
+			offsetY = target.offsetTop  + event.offsetY }
 		
 		const x = offsetX;
 		const y = offsetY;
