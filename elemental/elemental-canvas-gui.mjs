@@ -1,5 +1,5 @@
 "use strict";
-import { CanvasGUI } from '/mvc/views/gui/canvas-gui';
+import { CanvasGUI } from '/HafrenHaverJS/mvc/views/gui/canvas-gui';
 
 export class ElementalCanvasGUI extends CanvasGUI {
 	elements;

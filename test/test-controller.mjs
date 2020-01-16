@@ -1,5 +1,5 @@
 "use strict";
-import { Controller } from '/mvc/controller';
+import { Controller } from '/HafrenHaverJS/mvc/controller';
 
 export class TestController extends Controller {
 	function setXY(x, y) {

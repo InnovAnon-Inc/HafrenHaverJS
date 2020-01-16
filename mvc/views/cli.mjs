@@ -1,4 +1,4 @@
 "use strict";
-import { View } from '/mvc/views/view';
+import { View } from '/HafrenHaverJS/mvc/views/view';
 
 export class CLI extends View { /* TODO */ }
