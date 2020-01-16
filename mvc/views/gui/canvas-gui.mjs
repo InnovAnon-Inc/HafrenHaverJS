@@ -31,7 +31,7 @@ export class CanvasGUI extends GUI {
 		const x = offsetX;
 		const y = offsetY;
 		console.log('x, y => ' + x + ', ' + y);
-		console.log('w, h => ' + canvas.width + ', ' + canvas.height);
+		console.log('w, h => ' + this.width + ', ' + this.height);
 		
 		this.handleClick(x, y) }
 	redraw() {
