@@ -1,6 +1,19 @@
 "use strict";
 import { GUI } from '/HafrenHaverJS/mvc/views/gui/gui.mjs';
 
+function resizeCanvasToDisplaySize(canvas) {
+	// look up the size the canvas is being displayed
+	const width  = canvas.clientWidth;
+	const height = canvas.clientHeight;
+
+	// If it's resolution does not match change it
+	if (canvas.width !== width || canvas.height !== height) {
+	 canvas.width  = width;
+	 canvas.height = height;
+	 return true }
+
+	return false }
+
 export class CanvasGUI extends GUI {
 	//width;
 	//height;
@@ -9,10 +22,20 @@ export class CanvasGUI extends GUI {
 		super(id);
 		//const canvas  = super.element;
 		const canvas  = this.element;
-		this.width    = canvas.clientWidth;
-		this.height   = canvas.clientHeight;
+		resizeCanvasToDisplaySize(canvas);
+		this.width    = canvas.width;
+		this.height   = canvas.height;
 		this.ctx      = canvas.getContext("2d");
-		canvas.addEventListener('click', ((event) => this.onClick(event)).bind(this), false) }
+		canvas.addEventListener('click',  ((event) => this.onClick(event)) .bind(this), false);
+		window.addEventListener('resize', ((event) => this.onResize(event)).bind(this), false) }
+	onResize(event) {
+		const canvas = this.element;
+		if (! resizeCanvasToDisplaySize(canvas)) return;
+		
+		this.width  = canvas.width;
+		this.height = canvas.height;
+		this.redraw();
+	}
 	onClick(event) {
 		const canvas     = this.element;
 		const elemLeft   = canvas.offsetLeft;
