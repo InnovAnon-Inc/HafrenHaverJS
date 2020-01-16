@@ -10,7 +10,8 @@ export class MVC {
 		this.controller = controller;
 		model     .mvc  = this;
 		view      .mvc  = this;
-		controller.mvc  = this }
+		controller.mvc  = this;
+		view.draw() }
 	get model     () { return this.model      }
 	get view      () { return this.view       }
 	get controller() { return this.controller } }
