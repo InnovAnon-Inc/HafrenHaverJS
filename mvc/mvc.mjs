@@ -5,7 +5,6 @@ export class MVC {
 	//view;
 	//controller;
 	constructor(model, view, controller) {
-		super();
 		this.model      = model;
 		this.view       = view;
 		this.controller = controller;
