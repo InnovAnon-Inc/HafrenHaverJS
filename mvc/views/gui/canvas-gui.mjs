@@ -31,7 +31,7 @@ export class CanvasGUI extends GUI {
 		const y = offsetY / canvas.scrollHeight;
 		
 		console.log('scroll   width, height => ' + canvas.scrollWidth + ', ' + canvas.scrollHeight);
-		console.log('logical  width, height => ' + canvas.width + ', ' + canvas.height);
+		console.log('logical  width, height => ' + canvas.width       + ', ' + canvas.height);
 		console.log('relative x,     y      => ' + x                  + ', ' + y);
 		
 		this.handleClick(x, y) }
