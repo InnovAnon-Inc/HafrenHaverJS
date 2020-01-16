@@ -78,7 +78,7 @@
 	<!-- <script type="text/javascript" src="solfeggio.js" defer></script> -->
 	<script async type="module">
 		import { TestMVC } from '/HafrenHaverJS/test/test-mvc.mjs';
-		mvc = new TestMVC('solfeggio');
+		mvc = Object.freeze(new TestMVC('solfeggio'));
 		alert('mvc created');
 	</script>
 	<!--<script type="module">

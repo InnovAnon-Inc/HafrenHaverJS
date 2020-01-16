@@ -2,9 +2,9 @@
 import { GUI } from '/HafrenHaverJS/mvc/views/gui/gui.mjs';
 
 export class CanvasGUI extends GUI {
-	width;
-	height;
-	ctx;
+	//width;
+	//height;
+	//ctx;
 	constructor(id) {
 		super(id);
 		const canvas  = super.element;

@@ -2,8 +2,8 @@
 import { View } from '/HafrenHaverJS/mvc/views/view.mjs';
 
 export class GUI extends View {
-	id;
-	element;
+	//id;
+	//element;
 	constructor(id) {
 		this.id      = id;
 		this.element = document.getElementById(id) }
