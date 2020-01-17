@@ -31,10 +31,10 @@
 	</nav>
 
 	<article>
-	<div id='main-section'> <!-- main section -->
+	<div> <!-- main section -->
 	<noscript>JavaScript enables a more featureful experience.</noscript>
 	<div class="square"><div class="content">
-	<canvas id="solfeggio" width="1000" height="1000"></canvas>
+	<canvas id="main-canvas" width="1000" height="1000"></canvas>
 	</div></div>
 
 	<details>
@@ -78,7 +78,7 @@
 	<!-- <script type="text/javascript" src="solfeggio.js" defer></script> -->
 	<script type="module">
 		import { SolfeggioMVC } from '/HafrenHaverJS/solfeggio/solfeggio-mvc.mjs';
-		const mvc = Object.freeze(new TestMVC('solfeggio'));
+		const mvc = Object.freeze(new SolfeggioMVC('main-canvas'));
 		//alert('mvc created');
 	</script>
 	<script type="text/javascript" src="nomodule.js" nomodule defer></script>
