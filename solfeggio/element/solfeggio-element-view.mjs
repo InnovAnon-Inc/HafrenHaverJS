@@ -4,6 +4,7 @@ import { SOLFEGGIO_DB } from '/HafrenHaverJS/solfeggio/solfeggio-model.mjs';
 
 export class SolfeggioElementView extends ElementView {
 	constructor() {
+		super();
 		const element = SOLFEGGIO_DB[this.mvc.model.index];
 		this.text     = element[0];
 		this.bg       = element[1];
