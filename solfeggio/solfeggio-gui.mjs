@@ -1,6 +1,7 @@
 "use strict";
-import { CanvasGUI    } from '/HafrenHaverJS/mvc/views/gui/elemental-canvas-gui.mjs';
-import { SOLFEGGIO_DB } from '/HafrenHaverJS/solfeggio/solfeggio-model.mjs';
+import { CanvasGUI           } from '/HafrenHaverJS/elemental/elemental-canvas-gui.mjs';
+import { SolfeggioElementMVC } from '/HafrenHaverJS/solfeggio/element/solfeggio-element-mvc.mjs';
+import { SOLFEGGIO_DB        } from '/HafrenHaverJS/solfeggio/solfeggio-model.mjs';
 
 export class SolfeggioGUI extends ElementalCanvasGUI {
 	constructor(id) {
@@ -15,26 +16,27 @@ export class SolfeggioGUI extends ElementalCanvasGUI {
 	addElements() {
 		const elements = [];
 		
-		const canvas = this.element;
-		const len    = SOLFEGGIO_DB.length;
-		const roff2  = this.roff / 2;
-		const r2     = this.r - roff2;
+		const canvas   = this.element;
+		const len      = SOLFEGGIO_DB.length;
+		const roff2    = this.roff / 2;
+		const r2       = this.r - roff2;
 		for(var i = 0; i < len; i++) {
-			const theta = i / len * 2 * Math.PI;
-			const x     = this.w2 + r2 * Math.cos(theta);
-			const y     = this.h2 + r2 * Math.sin(theta);
-			const entry = SOLFEGGIO_DB[(i + 8) % len];
-			elements.push([x, y, this.roff, entry]);
+			const theta  = i / len * 2 * Math.PI;
+			const x      = this.w2 + r2 * Math.cos(theta);
+			const y      = this.h2 + r2 * Math.sin(theta);
+			const index  = (i + 8) % len;
+			const element = new SolfeggioElementMVC(this, this.w2, this.h2, r2, theta, this.roff, index);
+			elements.push(element);
 		}
 		
 		this.elements = Object.freeze(elements) }
 	handleClickedElements(elements) {
-		// TODO get index and set it in model
+		this.mvc.model.index = elements[0].model.index;
 		elements.forEach(e => e.controller.handleClick()) }
 	drawBefore() {
 		this.drawOuterCircle();
 		// TODO draw inner circle and polygons
-	}	
+	}
 	drawOuterCircle() {
 		const ctx = this.ctx;
 		ctx.beginPath();
@@ -45,44 +47,13 @@ export class SolfeggioGUI extends ElementalCanvasGUI {
 		ctx.stroke();
 		// TODO fill middle background to match selected element's fill style ?
 	}
-	
-	/*
-	drawInnerCircle(w2, h2, r) {
-		const ctx       = this.#ctx;
-		ctx.beginPath();
-		ctx.arc(w2, h2, r, 0, 2 * Math.PI, false);
-		ctx.strokeStyle = "black";
-		ctx.lineWidth   = 2;
-		ctx.closePath();
-		ctx.stroke();
-		// TODO fill inner background to opposite selected element's text
-	}
-	*/
-	
-	
-	/*
-	drawElements() {
-		const ctx = this.#ctx;
-		const len = this.#elements.length;
-		for(var i = 0; i < len; i++) {
-			const element = this.#elements[i];
-			const x       = element[0];
-			const y       = element[1];
-			const roff    = element[2];
-			const entry   = element[3];
 
-			this.drawElement    (x, y, roff / 2, entry[1]);
-			this.drawElementText(x, y, entry[2],  entry[0]);
-		}
-	}
-	*/
-	
-	/** draw indicator arrow */
-	drawAfter () {
+	drawAfter () { this.drawIndicatorArrow() }
+	drawIndicatorArrow() {
 		const ctx     = this.ctx;
 		const index2  = this.mvc.model.index;
-		const theta2  = (index2 - 8) / len * 2 * Math.PI;
 		const len     = SOLFEGGIO_DB.length;
+		const theta2  = (index2 - 8) / len * 2 * Math.PI;
 		const entry2  = SOLFEGGIO_DB[index2 % len];
 		const r3      = r - roff;
 
