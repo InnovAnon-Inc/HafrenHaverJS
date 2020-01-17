@@ -1,5 +1,5 @@
 "use strict";
-import { CanvasGUI           } from '/HafrenHaverJS/elemental/elemental-canvas-gui.mjs';
+import { ElementalCanvasGUI  } from '/HafrenHaverJS/elemental/elemental-canvas-gui.mjs';
 import { SolfeggioElementMVC } from '/HafrenHaverJS/solfeggio/element/solfeggio-element-mvc.mjs';
 import { SOLFEGGIO_DB        } from '/HafrenHaverJS/solfeggio/solfeggio-model.mjs';
 
