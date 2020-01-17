@@ -11,7 +11,7 @@ export class CanvasGUI extends GUI {
 		this.width    = canvas.width;
 		this.height   = canvas.height;
 		this.ctx      = canvas.getContext("2d");
-		canvas.addEventListener('click',  ((event) => this.onClick(event)) .bind(this), false) }
+		canvas.addEventListener('click', ((event) => this.onClick(event)).bind(this), false) }
 	onClick(event) {
 		const canvas     = this.element;
 		const elemLeft   = canvas.offsetLeft;

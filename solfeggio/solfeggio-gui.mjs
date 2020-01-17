@@ -2,26 +2,7 @@
 import { CanvasGUI    } from '/HafrenHaverJS/mvc/views/gui/elemental-canvas-gui.mjs';
 import { SOLFEGGIO_DB } from '/HafrenHaverJS/solfeggio/solfeggio-model.mjs';
 
-class SolfeggioElementModel extends Model {
-	constructor(w2, h2, r2, theta, roff) {
-		this.x    = w2 + r2 * Math.cos(theta);
-		this.y    = h2 + r2 * Math.sin(theta);
-		this.roff = roff }
-	contains(x, y) { return (Math.sqrt(Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2)) <= this.roff) } }
-class SolfeggioElementGUI extends GUI {
-	constructor(canvas) { this.canvas = canvas }
-	draw() {}
-}
-class SolfeggioElementController extends Controller {
-	handleClick() {
-		// TODO
-	} }
-class SolfeggioElementMVC extends MVC {
-	constructor(w2, h2, r2, theta, roff, entry) {
-		const m = new SolfeggioElementModel(w2, h2, r2, theta, roff);
-		const v = new SolfeggioElementGUI();
-		const c = new SolfeggioController();
-		super(m, v, c) } }
+
 
 export class SolfeggioGUI extends ElementalCanvasGUI {
 	constructor(id) { super(id) }
@@ -48,7 +29,9 @@ export class SolfeggioGUI extends ElementalCanvasGUI {
 		}
 		
 		this.elements = Object.freeze(elements) }
-	handleClickedElements(elements) { elements.forEach(e => e.controller.handleClick()) }
+	handleClickedElements(elements) {
+		// TODO get index and set it in model
+		elements.forEach(e => e.controller.handleClick()) }
 	drawBefore() {
 		// TODO draw inner circle
 		// TODO draw outer circle
